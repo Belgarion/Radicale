@@ -40,6 +40,8 @@ IMAP_SERVER_PORT = config.get("auth", "imap_auth_host_port")
 
 def is_authenticated(user, password):
     """Check if ``user``/``password`` couple is valid."""
+	if not user or not password:
+		return False
 
     log.LOGGER.debug(
         "[IMAP AUTH] Connecting to %s:%s." % (IMAP_SERVER, IMAP_SERVER_PORT,))
